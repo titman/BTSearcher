@@ -49,5 +49,19 @@
     // Insert code here to tear down your application
 }
 
+-(void) applicationDidBecomeActive:(NSNotification *)notification
+{
+    // TODO: go over windows here and bring them active
+    for (NSWindow * window in  [NSApp orderedWindows]) {
+        [window orderFrontRegardless];
+    }
+}
+
+-(BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+    [theApplication.keyWindow makeKeyAndOrderFront:nil];
+    return YES;
+}
+
 
 @end

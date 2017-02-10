@@ -92,6 +92,7 @@
     }];
 }
 
+
 - (void)openWindow:(id)sender
 {
     NSWindow * window = [self.view window]; // Get the window to open
