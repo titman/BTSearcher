@@ -63,8 +63,9 @@
     
     NSMenu * menu = [[NSMenu alloc] init];
     [menu addItemWithTitle:@"切换源" action:nil keyEquivalent:@""];
-    [menu addItemWithTitle:@"BT磁力链(bturls.com)" action:@selector(changeSource:) keyEquivalent:@"1"];
+    [menu addItemWithTitle:@"BT磁力链(bturls.net)" action:@selector(changeSource:) keyEquivalent:@"1"];
     [menu addItemWithTitle:@"BTKIKI(btkiki.com)" action:@selector(changeSource:) keyEquivalent:@"2"];
+    [menu addItemWithTitle:@"BT蚂蚁(btanm.com  默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
     [menu addItemWithTitle:@"Quit BTSearcher" action:@selector(terminate:) keyEquivalent:@""];
     self.statusItem.menu = menu;
     
@@ -117,9 +118,13 @@
         
         url = [NSString stringWithFormat:@"http://www.bturls.net/search/%@_ctime_1.html", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
-    else{
+    else if(SOURCE_TYPE == SourceTypeBTKIKI){
         
         url = [NSString stringWithFormat:@"http://www.btkiki.com/s/%@.html", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    }
+    else{
+        
+        url = [NSString stringWithFormat:@"http://www.btanm.com/search/%@-first-asc-1", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
         
     [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -184,8 +189,8 @@
     cell.count.stringValue = item.fileCount;
     cell.date.stringValue  = item.date;
 
-    if(SOURCE_TYPE == SourceTypeBTURLs) cell.fileCountTip.stringValue = @"热  度：";
-    else cell.fileCountTip.stringValue = @"文件数：";
+    if(SOURCE_TYPE == SourceTypeBTURLs || SOURCE_TYPE == SourceTypeBTANM) cell.fileCountTip.stringValue = @"热  度：";
+    else if(SOURCE_TYPE == SourceTypeBTKIKI) cell.fileCountTip.stringValue = @"文件数：";
     
     return cell;
 }
@@ -194,7 +199,14 @@
 {
     BTItem * item = self.datasource[row];
 
-    [self getMagnetWithURL:item.href];
+    if (item.magnet) {
+        
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:item.magnet]];
+    }
+    else{
+        
+        [self getMagnetWithURL:item.href];
+    }
     
     return NO;
 }

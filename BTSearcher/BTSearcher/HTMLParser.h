@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, SourceType){
   
     SourceTypeBTURLs = 1,
     SourceTypeBTKIKI = 2,
+    SourceTypeBTANM  = 3,
 };
 
 @interface HTMLParser : NSObject

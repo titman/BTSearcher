@@ -48,6 +48,10 @@
         
         return [HTMLParser btkiki:object];
     }
+    else{
+        
+        return [HTMLParser btanm:object];
+    }
     
     return nil;
 }
@@ -248,6 +252,101 @@
         }
     }
     
+    return nil;
+}
+
++(NSMutableArray *) btanm:(id)object
+{
+    NSMutableArray * result = [NSMutableArray array];
+    
+    
+    TFHpple * hpple = [[TFHpple alloc] initWithHTMLData:object];
+    
+    NSArray * itemElements = [hpple searchWithXPathQuery:@"//div[@class = 'search-item']"];
+    
+    for (TFHppleElement * itemElement in itemElements) {
+
+        BTItem * item = [[BTItem alloc] init];
+
+        
+        NSString * tmpString = [itemElement.raw stringByReplacingOccurrencesOfString:@"<span class=\"highlight\">" withString:@" "];
+        tmpString = [tmpString stringByReplacingOccurrencesOfString:@"<span>" withString:@" "];
+        tmpString = [tmpString stringByReplacingOccurrencesOfString:@"</span>" withString:@" "];
+        tmpString = [tmpString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+        TFHpple * hppleTmp = [[TFHpple alloc] initWithHTMLData:[tmpString dataUsingEncoding:NSUTF8StringEncoding]];
+
+        
+        NSArray * titleElements = [hppleTmp searchWithXPathQuery:@"//div[@class = 'item-title']"];
+
+        for (TFHppleElement * titleElement in titleElements) {
+            
+            NSArray * aElements = [titleElement searchWithXPathQuery:@"//a"];
+
+            for (TFHppleElement * aElement in aElements) {
+
+                item.title = aElement.text;
+                item.href = [NSString stringWithFormat:@"http://www.btanm.com%@", [aElement objectForKey:@"href"]];
+            }
+        }
+        
+        
+        NSArray * listElements = [hppleTmp searchWithXPathQuery:@"//div[@class = 'item-list']"];
+
+        for (TFHppleElement * listElement in listElements) {
+
+            NSArray * pElements = [listElement searchWithXPathQuery:@"//p"];
+            
+            for (TFHppleElement * pElement in pElements) {
+                
+                item.files = [NSArray arrayWithObject:pElement.text];
+            }
+        }
+        
+        NSArray * barElements = [hppleTmp searchWithXPathQuery:@"//div[@class = 'item-bar']"];
+        
+        for (TFHppleElement * barElement in barElements) {
+            
+            NSArray * blueElements = [barElement searchWithXPathQuery:@"//b[@class = 'cpill blue-pill']"];
+            
+            for (TFHppleElement * blueElement in blueElements) {
+
+                item.date = blueElement.text;
+                break;
+            }
+            
+            NSArray * yellowElements = [barElement searchWithXPathQuery:@"//b[@class = 'cpill yellow-pill']"];
+            
+            int i = 0;
+            
+            for (TFHppleElement * yellowElement in yellowElements) {
+
+                if(i == 0) item.fileCount = yellowElement.text;
+                if(i == 1) item.size = yellowElement.text;
+                
+                i++;
+            }
+            
+            
+            NSArray * aElements = [barElement searchWithXPathQuery:@"//a"];
+            
+            for (TFHppleElement * aElement in aElements) {
+                
+                NSString * href = [aElement objectForKey:@"href"];
+                item.magnet = href;
+                break;
+            }
+
+        }
+        
+        [result addObject:item];
+    }
+    
+    return result;
+}
+
++(NSString *) btanmMagnet:(id)object
+{
     return nil;
 }
 

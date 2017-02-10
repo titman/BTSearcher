@@ -41,7 +41,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     
-    self.sourceType = 1;
+    self.sourceType = 3;
 }
 
 

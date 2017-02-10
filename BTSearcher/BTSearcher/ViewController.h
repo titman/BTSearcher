@@ -40,6 +40,7 @@
 @property(nonatomic, strong) NSString * size;
 @property(nonatomic, strong) NSString * fileCount;
 @property(nonatomic, strong) NSString * date;
+@property(nonatomic, strong) NSString * magnet;
 
 @end
 
