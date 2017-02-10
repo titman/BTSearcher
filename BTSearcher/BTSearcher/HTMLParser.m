@@ -87,11 +87,18 @@
             
             for (TFHppleElement * h3Element in h3Elements) {
 
-                NSArray * aElements = [h3Element searchWithXPathQuery:@"//a"];
+                NSString * tmpString = [h3Element.raw stringByReplacingOccurrencesOfString:@"<span class=\"highlight\">" withString:@""];
+                tmpString = [tmpString stringByReplacingOccurrencesOfString:@"</span>" withString:@""];
+                tmpString = [tmpString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+
+                
+                TFHpple * hppleTmp = [[TFHpple alloc] initWithHTMLData:[tmpString dataUsingEncoding:NSUTF8StringEncoding]];
+
+                NSArray * aElements = [hppleTmp searchWithXPathQuery:@"//a"];
                 
                 for (TFHppleElement * aElement in aElements) {
 
-                    item.title = [aElement.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                    item.title = aElement.text;
                     item.href = [NSString stringWithFormat:@"http://www.bturls.net%@", [aElement objectForKey:@"href"]];
                 }
             }
