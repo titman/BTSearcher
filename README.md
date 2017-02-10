@@ -1,6 +1,4 @@
-##BTSearcher 
-
-
+##BTSearcher for mac
 ###Features
 > * Search magnets with keywords.
 > * It supports open and download magnet using Thunder. (迅雷)
