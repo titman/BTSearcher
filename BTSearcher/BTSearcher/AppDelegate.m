@@ -42,6 +42,7 @@
     // Insert code here to initialize your application
     
     self.sourceType = 3;
+    
 }
 
 

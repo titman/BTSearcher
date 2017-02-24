@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		1345FC891E4C876D004FA807 /* StatusItemIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */; };
 		1345FC8E1E4D601A004FA807 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1345FC8D1E4D601A004FA807 /* HTMLParser.m */; };
-		135045F01E4C555C00BB7157 /* MagnetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045EF1E4C555C00BB7157 /* MagnetViewController.m */; };
 		135045FE1E4C595E00BB7157 /* DJActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045F71E4C595E00BB7157 /* DJActivityIndicator.m */; };
 		135045FF1E4C595E00BB7157 /* DJBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045F91E4C595E00BB7157 /* DJBezierPath.m */; };
 		135046001E4C595E00BB7157 /* DJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045FB1E4C595E00BB7157 /* DJProgressHUD.m */; };
 		135046011E4C595E00BB7157 /* DJProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045FD1E4C595E00BB7157 /* DJProgressIndicator.m */; };
 		135046031E4C5D8100BB7157 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135046021E4C5D8100BB7157 /* ItemCell.xib */; };
 		135046061E4C5DEB00BB7157 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 135046051E4C5DEB00BB7157 /* ItemCell.m */; };
+		136655761E6010720080DC3B /* DragImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 136655751E6010720080DC3B /* DragImageView.m */; };
+		1366557C1E603F390080DC3B /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 1366557B1E603F390080DC3B /* NSDataEx.m */; };
 		13BE0F441E31F4E700ADA879 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F431E31F4E700ADA879 /* AppDelegate.m */; };
 		13BE0F471E31F4E700ADA879 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F461E31F4E700ADA879 /* main.m */; };
 		13BE0F4A1E31F4E700ADA879 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F491E31F4E700ADA879 /* ViewController.m */; };
@@ -36,14 +37,17 @@
 		13BE0F831E320DCD00ADA879 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F7F1E320DCD00ADA879 /* TFHppleElement.m */; };
 		13BE0F841E320DCD00ADA879 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F811E320DCD00ADA879 /* XPathQuery.m */; };
 		13BE0F891E320E4200ADA879 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BE0F881E320E4200ADA879 /* libxml2.tbd */; };
+		13EB18401E55A7D0006FF44A /* MagnetTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EB183F1E55A7D0006FF44A /* MagnetTableView.m */; };
+		13EB18471E55B0DE006FF44A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EB18461E55B0DE006FF44A /* WebKit.framework */; };
+		13EB184B1E56C9A7006FF44A /* ImageSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EB18491E56C9A7006FF44A /* ImageSearchViewController.m */; };
+		13EB184C1E56C9A7006FF44A /* ImageSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EB184A1E56C9A7006FF44A /* ImageSearchViewController.xib */; };
+		13EB184E1E56E340006FF44A /* File.html in Resources */ = {isa = PBXBuildFile; fileRef = 13EB184D1E56E340006FF44A /* File.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StatusItemIcon@2x.png"; sourceTree = "<group>"; };
 		1345FC8C1E4D601A004FA807 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		1345FC8D1E4D601A004FA807 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
-		135045EE1E4C555C00BB7157 /* MagnetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnetViewController.h; sourceTree = "<group>"; };
-		135045EF1E4C555C00BB7157 /* MagnetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetViewController.m; sourceTree = "<group>"; };
 		135045F61E4C595E00BB7157 /* DJActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJActivityIndicator.h; sourceTree = "<group>"; };
 		135045F71E4C595E00BB7157 /* DJActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJActivityIndicator.m; sourceTree = "<group>"; };
 		135045F81E4C595E00BB7157 /* DJBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJBezierPath.h; sourceTree = "<group>"; };
@@ -55,6 +59,10 @@
 		135046021E4C5D8100BB7157 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		135046041E4C5DEB00BB7157 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		135046051E4C5DEB00BB7157 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		136655741E6010720080DC3B /* DragImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragImageView.h; sourceTree = "<group>"; };
+		136655751E6010720080DC3B /* DragImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragImageView.m; sourceTree = "<group>"; };
+		1366557A1E603F390080DC3B /* NSDataEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
+		1366557B1E603F390080DC3B /* NSDataEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
 		13BE0F3F1E31F4E700ADA879 /* BTSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BE0F421E31F4E700ADA879 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13BE0F431E31F4E700ADA879 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,6 +102,13 @@
 		13BE0F811E320DCD00ADA879 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		13BE0F861E320DF400ADA879 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		13BE0F881E320E4200ADA879 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		13EB183E1E55A7D0006FF44A /* MagnetTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagnetTableView.h; sourceTree = "<group>"; };
+		13EB183F1E55A7D0006FF44A /* MagnetTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagnetTableView.m; sourceTree = "<group>"; };
+		13EB18461E55B0DE006FF44A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		13EB18481E56C9A7006FF44A /* ImageSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSearchViewController.h; sourceTree = "<group>"; };
+		13EB18491E56C9A7006FF44A /* ImageSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSearchViewController.m; sourceTree = "<group>"; };
+		13EB184A1E56C9A7006FF44A /* ImageSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSearchViewController.xib; sourceTree = "<group>"; };
+		13EB184D1E56E340006FF44A /* File.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = File.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13EB18471E55B0DE006FF44A /* WebKit.framework in Frameworks */,
 				13BE0F891E320E4200ADA879 /* libxml2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,13 +163,21 @@
 				13BE0F431E31F4E700ADA879 /* AppDelegate.m */,
 				13BE0F481E31F4E700ADA879 /* ViewController.h */,
 				13BE0F491E31F4E700ADA879 /* ViewController.m */,
+				13EB184D1E56E340006FF44A /* File.html */,
+				1366557A1E603F390080DC3B /* NSDataEx.h */,
+				1366557B1E603F390080DC3B /* NSDataEx.m */,
 				1345FC8C1E4D601A004FA807 /* HTMLParser.h */,
 				1345FC8D1E4D601A004FA807 /* HTMLParser.m */,
+				13EB183E1E55A7D0006FF44A /* MagnetTableView.h */,
+				13EB183F1E55A7D0006FF44A /* MagnetTableView.m */,
+				136655741E6010720080DC3B /* DragImageView.h */,
+				136655751E6010720080DC3B /* DragImageView.m */,
+				13EB18481E56C9A7006FF44A /* ImageSearchViewController.h */,
+				13EB18491E56C9A7006FF44A /* ImageSearchViewController.m */,
+				13EB184A1E56C9A7006FF44A /* ImageSearchViewController.xib */,
 				135046041E4C5DEB00BB7157 /* ItemCell.h */,
 				135046051E4C5DEB00BB7157 /* ItemCell.m */,
 				135046021E4C5D8100BB7157 /* ItemCell.xib */,
-				135045EE1E4C555C00BB7157 /* MagnetViewController.h */,
-				135045EF1E4C555C00BB7157 /* MagnetViewController.m */,
 				1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */,
 				13BE0F591E31FA8E00ADA879 /* SearchIcon@2x.png */,
 				135045F51E4C595E00BB7157 /* DJProgressHUD */,
@@ -219,6 +243,7 @@
 		13BE0F851E320DF400ADA879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13EB18461E55B0DE006FF44A /* WebKit.framework */,
 				13BE0F881E320E4200ADA879 /* libxml2.tbd */,
 				13BE0F861E320DF400ADA879 /* libxml2.2.tbd */,
 			);
@@ -283,7 +308,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13EB184C1E56C9A7006FF44A /* ImageSearchViewController.xib in Resources */,
 				1345FC891E4C876D004FA807 /* StatusItemIcon@2x.png in Resources */,
+				13EB184E1E56E340006FF44A /* File.html in Resources */,
 				135046031E4C5D8100BB7157 /* ItemCell.xib in Resources */,
 				13BE0F5A1E31FA8E00ADA879 /* SearchIcon@2x.png in Resources */,
 				13BE0F4C1E31F4E700ADA879 /* Assets.xcassets in Resources */,
@@ -301,12 +328,12 @@
 				135045FE1E4C595E00BB7157 /* DJActivityIndicator.m in Sources */,
 				135045FF1E4C595E00BB7157 /* DJBezierPath.m in Sources */,
 				13BE0F771E320D3B00ADA879 /* AFURLConnectionOperation.m in Sources */,
-				135045F01E4C555C00BB7157 /* MagnetViewController.m in Sources */,
 				13BE0F751E320D3B00ADA879 /* AFNetworkReachabilityManager.m in Sources */,
 				13BE0F7A1E320D3B00ADA879 /* AFURLSessionManager.m in Sources */,
 				13BE0F781E320D3B00ADA879 /* AFURLRequestSerialization.m in Sources */,
 				13BE0F4A1E31F4E700ADA879 /* ViewController.m in Sources */,
 				135046011E4C595E00BB7157 /* DJProgressIndicator.m in Sources */,
+				136655761E6010720080DC3B /* DragImageView.m in Sources */,
 				13BE0F791E320D3B00ADA879 /* AFURLResponseSerialization.m in Sources */,
 				13BE0F721E320D3B00ADA879 /* AFHTTPRequestOperationManager.m in Sources */,
 				13BE0F831E320DCD00ADA879 /* TFHppleElement.m in Sources */,
@@ -317,8 +344,11 @@
 				135046001E4C595E00BB7157 /* DJProgressHUD.m in Sources */,
 				13BE0F761E320D3B00ADA879 /* AFSecurityPolicy.m in Sources */,
 				13BE0F471E31F4E700ADA879 /* main.m in Sources */,
+				1366557C1E603F390080DC3B /* NSDataEx.m in Sources */,
+				13EB18401E55A7D0006FF44A /* MagnetTableView.m in Sources */,
 				13BE0F731E320D3B00ADA879 /* AFHTTPSessionManager.m in Sources */,
 				13BE0F441E31F4E700ADA879 /* AppDelegate.m in Sources */,
+				13EB184B1E56C9A7006FF44A /* ImageSearchViewController.m in Sources */,
 				13BE0F841E320DCD00ADA879 /* XPathQuery.m in Sources */,
 				1345FC8E1E4D601A004FA807 /* HTMLParser.m in Sources */,
 			);

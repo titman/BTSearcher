@@ -37,14 +37,18 @@
 #import "ItemCell.h"
 #import "HTMLParser.h"
 #import "AppDelegate.h"
+#import "ImageSearchViewController.h"
 
 @implementation BTItem @end
 
-@interface ViewController () <NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate>
+@interface ViewController () <NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, WebFrameLoadDelegate, WebResourceLoadDelegate>
 
 @property(nonatomic, strong) NSMutableArray * datasource;
-@property(nonatomic, strong) NSEvent * enterMonitor;
 @property(nonatomic, strong) NSStatusItem * statusItem;
+
+@property(nonatomic, strong) NSEvent * enterMonitor;
+@property(nonatomic, strong) NSEvent * mouseMonitor;
+@property(nonatomic, strong) NSEvent * localMonitor;
 
 @end
 
@@ -66,6 +70,10 @@
     [menu addItemWithTitle:@"BT磁力链(bturls.net)" action:@selector(changeSource:) keyEquivalent:@"1"];
     [menu addItemWithTitle:@"BTKIKI(btkiki.com)" action:@selector(changeSource:) keyEquivalent:@"2"];
     [menu addItemWithTitle:@"BT蚂蚁(btanm.com  默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
+    [menu addItem:[NSMenuItem separatorItem]];
+    [menu addItemWithTitle:@"百度图片搜索(默认)" action:@selector(changeImageSearchSource:) keyEquivalent:@"00"];
+    [menu addItemWithTitle:@"Google图片搜索" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
+    [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"Quit BTSearcher" action:@selector(terminate:) keyEquivalent:@""];
     self.statusItem.menu = menu;
     
@@ -80,6 +88,8 @@
     
     self.enterMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent * (NSEvent * event){
         
+        NSLog(@"%@", event);
+        
         NSWindow * targetWindow = event.window;
         
         if (targetWindow != self.view.window) return event;
@@ -91,8 +101,68 @@
         
         return event;
     }];
+    
+    
+    self.mouseMonitor = [NSEvent addGlobalMonitorForEventsMatchingMask:NSEventMaskLeftMouseDragged | NSEventMaskLeftMouseUp handler:^(NSEvent * _Nonnull event) {
+        
+        if (event.type == NSEventTypeLeftMouseDragged) {
+            
+            self.dragImageView.hidden = NO;
+            self.tip.hidden = YES;
+        }
+        else if(event.type == NSEventTypeLeftMouseUp){
+            
+            self.dragImageView.hidden = YES;
+            self.tip.hidden = NO;
+        }
+    }];
+    
+    self.mouseMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskLeftMouseDragged | NSEventMaskLeftMouseUp handler:^(NSEvent * _Nonnull event) {
+        
+        if (event.type == NSEventTypeLeftMouseDragged) {
+            
+            self.dragImageView.hidden = NO;
+            self.tip.hidden = YES;
+        }
+        else if(event.type == NSEventTypeLeftMouseUp){
+            
+            self.dragImageView.hidden = YES;
+            self.tip.hidden = NO;
+        }
+        
+        return event;
+    }];
+    
+    self.dragImageView.parentViewController = self;
 }
 
+-(void) viewDidAppear
+{
+    [super viewDidAppear];
+}
+
+
+//- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
+//{
+//    if ([request.URL.absoluteString hasPrefix:@"file://"]) {
+//        
+//        return [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+//    }
+//    
+//    if ([request.URL.absoluteString hasPrefix:@"http://image.baidu.com/n/pc_search?"]) {
+//
+//        ImageSearchViewController * imageSearch = [[ImageSearchViewController alloc] init];
+//        imageSearch.request = [NSURLRequest requestWithURL:request.URL];
+//        
+//        [self presentViewControllerAsModalWindow:imageSearch];
+//        
+//        [self performSelector:@selector(loadMain) withObject:nil afterDelay:2];
+//        
+//        return request;
+//    }
+//    
+//    return request;
+//}
 
 - (void)openWindow:(id)sender
 {
@@ -103,6 +173,11 @@
 -(void) changeSource:(NSMenuItem *)item
 {
     SOURCE_TYPE = item.keyEquivalent.intValue;
+}
+
+-(void) changeImageSearchSource:(NSMenuItem *)item
+{
+    IAMAGE_SEARCH_TYPE = item.keyEquivalent.intValue;
 }
 
 -(void) loadData
@@ -152,6 +227,7 @@
     [manager GET:[NSString stringWithFormat:@"%@", href] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSString * magnet = [HTMLParser parsingMagnetWithObject:responseObject];
+        
         
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:magnet]];
         
@@ -213,3 +289,5 @@
 
 
 @end
+
+

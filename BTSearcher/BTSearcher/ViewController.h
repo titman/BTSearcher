@@ -31,6 +31,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MagnetTableView.h"
+#import <WebKit/WebKit.h>
+#import "DragImageView.h"
 
 @interface BTItem : NSObject
 
@@ -46,8 +49,10 @@
 
 @interface ViewController : NSViewController
 
-@property(nonatomic, strong) IBOutlet NSTableView * tableView;
+@property(nonatomic, strong) IBOutlet MagnetTableView * tableView;
 @property(nonatomic, strong) IBOutlet NSTextField * textField;
+@property(nonatomic, strong) IBOutlet NSTextField * tip;
+@property(nonatomic, strong) IBOutlet DragImageView * dragImageView;
 
 @end
 

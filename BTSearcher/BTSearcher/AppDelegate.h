@@ -37,10 +37,12 @@
 #define APP_HEIGHT [NSScreen mainScreen].visibleFrame.size.height
 
 #define SOURCE_TYPE ((AppDelegate *)[NSApplication sharedApplication].delegate).sourceType
+#define IAMAGE_SEARCH_TYPE ((AppDelegate *)[NSApplication sharedApplication].delegate).imageSearchType
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property(nonatomic, assign) SourceType sourceType;
+@property(nonatomic, assign) NSInteger imageSearchType;
 
 @end
 
