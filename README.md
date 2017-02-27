@@ -1,13 +1,19 @@
 ##BTSearcher for mac
 ###Features
-> * Search magnets with keywords.
-> * It supports open and download magnet using Thunder. (迅雷)
-> * It supports source switch. (btkiki / bturls)
+> * Magnets search with keywords.
+> * It supports magnet open and download use Thunder. (迅雷)
+> * It supports source switch. (btkiki / bturls / btanm)
+> * It supports image search. (Baidu / Google)
+> * Hotkey.
 > * The minimum support OSX 10.10 .
 
 -
 ![image](https://github.com/titman/Pictures-of-the-warehouse/blob/master/BTSearcher2.png?raw=false)
 
-###Preview (GIF)
+###Magnet Search Preview (GIF)
 -
 ![image](https://github.com/titman/Pictures-of-the-warehouse/blob/master/BTSearcher1.gif?raw=false)  
+
+###Image Search Preview (GIF)
+-
+![image](https://github.com/titman/Pictures-of-the-warehouse/blob/master/BTSearcher3.gif?raw=false)  
