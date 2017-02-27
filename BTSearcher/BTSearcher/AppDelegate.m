@@ -30,7 +30,10 @@
 //  IN THE SOFTWARE.
 //
 
+
 #import "AppDelegate.h"
+#import "DDHotKeyCenter.h"
+#import <Carbon/Carbon.h>
 
 @interface AppDelegate ()
 
@@ -43,8 +46,20 @@
     
     self.sourceType = 3;
     
+    DDHotKeyCenter * hotkeyCenter = [DDHotKeyCenter sharedHotKeyCenter];
+    
+    if (![hotkeyCenter registerHotKeyWithKeyCode:kVK_ANSI_V modifierFlags:NSControlKeyMask target:self action:@selector(hotkeyWithEvent:) object:nil]) {
+    }
 }
 
+- (void) hotkeyWithEvent:(NSEvent *)hkEvent
+{
+    [NSApp activateIgnoringOtherApps:YES];
+    
+    for (NSWindow * window in  [NSApp orderedWindows]) {
+        [window orderFrontRegardless];
+    }
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application

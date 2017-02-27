@@ -74,6 +74,12 @@
     [menu addItemWithTitle:@"百度图片搜索(默认)" action:@selector(changeImageSearchSource:) keyEquivalent:@"00"];
     [menu addItemWithTitle:@"Google图片搜索" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
     [menu addItem:[NSMenuItem separatorItem]];
+    NSMenuItem * item = [menu addItemWithTitle:@"显示窗口" action:@selector(openWindow:) keyEquivalent:@"01"];
+    [item setKeyEquivalentModifierMask:NSControlKeyMask];
+    [item setKeyEquivalent:@"v"];
+    
+    [menu addItem:[NSMenuItem separatorItem]];
+
     [menu addItemWithTitle:@"Quit BTSearcher" action:@selector(terminate:) keyEquivalent:@""];
     self.statusItem.menu = menu;
     
@@ -87,8 +93,6 @@
     self.tableView.rowHeight  = 110;
     
     self.enterMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent * (NSEvent * event){
-        
-        NSLog(@"%@", event);
         
         NSWindow * targetWindow = event.window;
         

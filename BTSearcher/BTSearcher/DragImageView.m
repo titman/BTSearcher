@@ -11,7 +11,6 @@
 #import "AFNetworking.h"
 #import "ImageSearchViewController.h"
 #import "AppDelegate.h"
-#import "NSDataEx.h"
 
 @implementation DragImageView
 

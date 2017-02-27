@@ -16,7 +16,11 @@
 		135046031E4C5D8100BB7157 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135046021E4C5D8100BB7157 /* ItemCell.xib */; };
 		135046061E4C5DEB00BB7157 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 135046051E4C5DEB00BB7157 /* ItemCell.m */; };
 		136655761E6010720080DC3B /* DragImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 136655751E6010720080DC3B /* DragImageView.m */; };
-		1366557C1E603F390080DC3B /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 1366557B1E603F390080DC3B /* NSDataEx.m */; };
+		136655841E63C73C0080DC3B /* DDHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1366557F1E63C73C0080DC3B /* DDHotKeyCenter.m */; };
+		136655851E63C73C0080DC3B /* DDHotKeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 136655811E63C73C0080DC3B /* DDHotKeyTextField.m */; };
+		136655861E63C73C0080DC3B /* DDHotKeyUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 136655831E63C73C0080DC3B /* DDHotKeyUtilities.m */; };
+		136655881E63C8080080DC3B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136655871E63C8080080DC3B /* Carbon.framework */; };
+		1366558A1E63C8960080DC3B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136655891E63C8960080DC3B /* AppKit.framework */; };
 		13BE0F441E31F4E700ADA879 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F431E31F4E700ADA879 /* AppDelegate.m */; };
 		13BE0F471E31F4E700ADA879 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F461E31F4E700ADA879 /* main.m */; };
 		13BE0F4A1E31F4E700ADA879 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BE0F491E31F4E700ADA879 /* ViewController.m */; };
@@ -61,8 +65,14 @@
 		135046051E4C5DEB00BB7157 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		136655741E6010720080DC3B /* DragImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragImageView.h; sourceTree = "<group>"; };
 		136655751E6010720080DC3B /* DragImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragImageView.m; sourceTree = "<group>"; };
-		1366557A1E603F390080DC3B /* NSDataEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
-		1366557B1E603F390080DC3B /* NSDataEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
+		1366557E1E63C73C0080DC3B /* DDHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyCenter.h; sourceTree = "<group>"; };
+		1366557F1E63C73C0080DC3B /* DDHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyCenter.m; sourceTree = "<group>"; };
+		136655801E63C73C0080DC3B /* DDHotKeyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyTextField.h; sourceTree = "<group>"; };
+		136655811E63C73C0080DC3B /* DDHotKeyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyTextField.m; sourceTree = "<group>"; };
+		136655821E63C73C0080DC3B /* DDHotKeyUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHotKeyUtilities.h; sourceTree = "<group>"; };
+		136655831E63C73C0080DC3B /* DDHotKeyUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHotKeyUtilities.m; sourceTree = "<group>"; };
+		136655871E63C8080080DC3B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		136655891E63C8960080DC3B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		13BE0F3F1E31F4E700ADA879 /* BTSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BE0F421E31F4E700ADA879 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13BE0F431E31F4E700ADA879 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1366558A1E63C8960080DC3B /* AppKit.framework in Frameworks */,
+				136655881E63C8080080DC3B /* Carbon.framework in Frameworks */,
 				13EB18471E55B0DE006FF44A /* WebKit.framework in Frameworks */,
 				13BE0F891E320E4200ADA879 /* libxml2.tbd in Frameworks */,
 			);
@@ -137,6 +149,19 @@
 				135045FD1E4C595E00BB7157 /* DJProgressIndicator.m */,
 			);
 			path = DJProgressHUD;
+			sourceTree = "<group>";
+		};
+		1366557D1E63C73C0080DC3B /* DDHotkey */ = {
+			isa = PBXGroup;
+			children = (
+				1366557E1E63C73C0080DC3B /* DDHotKeyCenter.h */,
+				1366557F1E63C73C0080DC3B /* DDHotKeyCenter.m */,
+				136655801E63C73C0080DC3B /* DDHotKeyTextField.h */,
+				136655811E63C73C0080DC3B /* DDHotKeyTextField.m */,
+				136655821E63C73C0080DC3B /* DDHotKeyUtilities.h */,
+				136655831E63C73C0080DC3B /* DDHotKeyUtilities.m */,
+			);
+			path = DDHotkey;
 			sourceTree = "<group>";
 		};
 		13BE0F361E31F4E600ADA879 = {
@@ -164,8 +189,6 @@
 				13BE0F481E31F4E700ADA879 /* ViewController.h */,
 				13BE0F491E31F4E700ADA879 /* ViewController.m */,
 				13EB184D1E56E340006FF44A /* File.html */,
-				1366557A1E603F390080DC3B /* NSDataEx.h */,
-				1366557B1E603F390080DC3B /* NSDataEx.m */,
 				1345FC8C1E4D601A004FA807 /* HTMLParser.h */,
 				1345FC8D1E4D601A004FA807 /* HTMLParser.m */,
 				13EB183E1E55A7D0006FF44A /* MagnetTableView.h */,
@@ -180,6 +203,7 @@
 				135046021E4C5D8100BB7157 /* ItemCell.xib */,
 				1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */,
 				13BE0F591E31FA8E00ADA879 /* SearchIcon@2x.png */,
+				1366557D1E63C73C0080DC3B /* DDHotkey */,
 				135045F51E4C595E00BB7157 /* DJProgressHUD */,
 				13BE0F7B1E320DCD00ADA879 /* Hpple */,
 				13BE0F5B1E320D3B00ADA879 /* AFNetworking */,
@@ -243,6 +267,8 @@
 		13BE0F851E320DF400ADA879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				136655891E63C8960080DC3B /* AppKit.framework */,
+				136655871E63C8080080DC3B /* Carbon.framework */,
 				13EB18461E55B0DE006FF44A /* WebKit.framework */,
 				13BE0F881E320E4200ADA879 /* libxml2.tbd */,
 				13BE0F861E320DF400ADA879 /* libxml2.2.tbd */,
@@ -328,7 +354,9 @@
 				135045FE1E4C595E00BB7157 /* DJActivityIndicator.m in Sources */,
 				135045FF1E4C595E00BB7157 /* DJBezierPath.m in Sources */,
 				13BE0F771E320D3B00ADA879 /* AFURLConnectionOperation.m in Sources */,
+				136655851E63C73C0080DC3B /* DDHotKeyTextField.m in Sources */,
 				13BE0F751E320D3B00ADA879 /* AFNetworkReachabilityManager.m in Sources */,
+				136655861E63C73C0080DC3B /* DDHotKeyUtilities.m in Sources */,
 				13BE0F7A1E320D3B00ADA879 /* AFURLSessionManager.m in Sources */,
 				13BE0F781E320D3B00ADA879 /* AFURLRequestSerialization.m in Sources */,
 				13BE0F4A1E31F4E700ADA879 /* ViewController.m in Sources */,
@@ -344,12 +372,12 @@
 				135046001E4C595E00BB7157 /* DJProgressHUD.m in Sources */,
 				13BE0F761E320D3B00ADA879 /* AFSecurityPolicy.m in Sources */,
 				13BE0F471E31F4E700ADA879 /* main.m in Sources */,
-				1366557C1E603F390080DC3B /* NSDataEx.m in Sources */,
 				13EB18401E55A7D0006FF44A /* MagnetTableView.m in Sources */,
 				13BE0F731E320D3B00ADA879 /* AFHTTPSessionManager.m in Sources */,
 				13BE0F441E31F4E700ADA879 /* AppDelegate.m in Sources */,
 				13EB184B1E56C9A7006FF44A /* ImageSearchViewController.m in Sources */,
 				13BE0F841E320DCD00ADA879 /* XPathQuery.m in Sources */,
+				136655841E63C73C0080DC3B /* DDHotKeyCenter.m in Sources */,
 				1345FC8E1E4D601A004FA807 /* HTMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
