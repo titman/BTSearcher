@@ -66,7 +66,7 @@
     CGContextRef currentContext = (CGContextRef)[[NSGraphicsContext currentContext] graphicsPort];
     [NSGraphicsContext saveGraphicsState];
     
-    CGContextTranslateCTM(currentContext,[self bounds].size.width/2,[self bounds].size.height/2);
+    CGContextTranslateCTM(currentContext,[self bounds].size.width /2,[self bounds].size.height/2);
     
     NSBezierPath *path = [[NSBezierPath alloc] init];
     CGFloat lineWidth = 0.0859375 * theMaxSize;

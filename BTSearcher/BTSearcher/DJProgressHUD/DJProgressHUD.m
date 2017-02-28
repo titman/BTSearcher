@@ -216,7 +216,7 @@ typedef void (^CompletionHander)(void);
         [MainHUD setLayer:[CALayer layer]];
     }
     
-    NSRect newSize = [self getCenterWithinRect:parentView.frame scale:0.75];
+    NSRect newSize = [self getCenterWithinRect:parentView.frame scale:0.9];
     
     //The ring doesnt resize easily. Clear it.
     [progressIndicator clear];
@@ -226,7 +226,7 @@ typedef void (^CompletionHander)(void);
 
     [CATransaction flush];
     [CATransaction begin];
-    [CATransaction setValue:[NSNumber numberWithFloat:0.15f] forKey:kCATransactionAnimationDuration];
+    [CATransaction setValue:[NSNumber numberWithFloat:0.25] forKey:kCATransactionAnimationDuration];
     [CATransaction setCompletionBlock:^{
         _animatingShow = false;
         if(MainHUD.layer.opacity == 0.0)
@@ -299,7 +299,7 @@ typedef void (^CompletionHander)(void);
     [activityIndicator setColor:[NSColor whiteColor]];
     
     pSize.width = popupWidth;
-    pSize.height = iY+iH+_pPadding+spaceOnTop;//+(_pPadding/2);
+    pSize.height = iY+iH+_pPadding+spaceOnTop + 5;//+(_pPadding/2);
     
     [self setAutoresizesSubviews:YES];
     [MainHUD setAutoresizesSubviews:YES];
@@ -315,13 +315,13 @@ typedef void (^CompletionHander)(void);
     {
         CALayer* bgLayer = [CALayer layer];
         [bgLayer setBackgroundColor:bgcolor];
-        [bgLayer setCornerRadius:15.0];
+        [bgLayer setCornerRadius:4];
         [MainHUD setWantsLayer:TRUE];
         [MainHUD setLayer:bgLayer];
     }
     else {
         [MainHUD.layer setBackgroundColor:bgcolor];
-        [MainHUD.layer setCornerRadius:15.0];
+        [MainHUD.layer setCornerRadius:4];
     }
     
     if(![self layer]) {
@@ -388,17 +388,14 @@ typedef void (^CompletionHander)(void);
     
     //----DEFAULT VALUES----
     
-    _backgroundAlpha = 0.4;
+    _backgroundAlpha = 0.2;
     _actionsEnabled = FALSE;
     
     _pOffset = CGVectorMake(0, 0);
-    _pAlpha = 0.9;
-    _pPadding = 10;
+    _pAlpha = 0.95;
+    _pPadding = 15;
     
-    _indicatorSize = CGSizeMake(40, 40);
-    _indicatorOffset = CGVectorMake(0, 0);
-    
-    _indicatorSize = CGSizeMake(40, 40);
+    _indicatorSize = CGSizeMake(35, 35);
     _indicatorOffset = CGVectorMake(0, 0);
     
     [label setBezeled:NO];
@@ -406,7 +403,7 @@ typedef void (^CompletionHander)(void);
     [label setEditable:NO];
     [label setSelectable:NO];
     
-    label.font = [NSFont boldSystemFontOfSize:12.0];
+    label.font = [NSFont systemFontOfSize:14.0];
     [label setTextColor:[NSColor colorWithCalibratedWhite:1.0 alpha:0.85]];
 }
 
