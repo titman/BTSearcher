@@ -663,7 +663,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="BTSearcher" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="• BTSearcher" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -685,11 +685,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="328"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbE-a7-s5M">
-                                <rect key="frame" x="0.0" y="309.5" width="480" height="19.5"/>
+                            <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbE-a7-s5M">
+                                <rect key="frame" x="0.0" y="310" width="484" height="18"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString=" ✔ Input keywords, loser!" drawsBackground="YES" usesSingleLineMode="YES" id="lm7-Uv-94S">
-                                    <font key="font" metaFont="cellTitle"/>
+                                <backgroundFilters>
+                                    <ciFilter name="CIGaussianBlur">
+                                        <configuration>
+                                            <null key="inputImage"/>
+                                            <real key="inputRadius" value="10"/>
+                                        </configuration>
+                                    </ciFilter>
+                                </backgroundFilters>
+                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString=" ✔ Input keywords, loser!" drawsBackground="YES" usesSingleLineMode="YES" id="lm7-Uv-94S">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -697,21 +705,21 @@
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="LPd-dP-fyZ"/>
                                 </connections>
                             </textField>
-                            <scrollView identifier="cell" wantsLayer="YES" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jht-UO-RgK">
-                                <rect key="frame" x="0.0" y="58" width="480" height="246"/>
+                            <scrollView identifier="cell" wantsLayer="YES" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" scrollerKnobStyle="light" translatesAutoresizingMaskIntoConstraints="NO" id="jht-UO-RgK">
+                                <rect key="frame" x="2" y="58" width="476" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" identifier="cell" ambiguous="YES" id="cqV-OH-0wM">
-                                    <rect key="frame" x="1" y="1" width="478" height="244"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="476" height="246"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView identifier="cell" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="50" viewBased="YES" id="GvX-g5-Khq" customClass="MagnetTableView">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="244"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="476" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" red="0.91946423053741455" green="0.65102410316467285" blue="0.56423783302307129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <tableColumns>
-                                                <tableColumn identifier="cell" width="475" minWidth="40" maxWidth="1000" id="0sw-1r-Wou">
+                                                <tableColumn identifier="cell" width="473" minWidth="40" maxWidth="1000" id="0sw-1r-Wou">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -725,11 +733,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="ehV-RT-yJf">
-                                                            <rect key="frame" x="1" y="1" width="475" height="50"/>
+                                                            <rect key="frame" x="1" y="1" width="473" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fff-W7-IcC">
-                                                                    <rect key="frame" x="0.0" y="33" width="475" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="33" width="473" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="F7m-BF-4IA">
                                                                         <font key="font" metaFont="system"/>
@@ -762,12 +770,21 @@
                                 </scroller>
                             </scrollView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-Zt-L1O">
-                                <rect key="frame" x="465" y="309" width="10" height="22"/>
+                                <rect key="frame" x="465" y="308" width="10" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SearchIcon" id="hQg-aI-Y3O"/>
                             </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnn-fx-2yW">
+                                <rect key="frame" x="171" y="20" width="139" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="拖拽图片至此进行图片搜索" id="HWG-Q3-wyd">
+                                    <font key="font" size="11" name=".PingFangSC-Regular"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.24790268456375839" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CX0-tR-zEM" userLabel="拖拽图片至此（最大5M）" customClass="DragImageView">
-                                <rect key="frame" x="0.0" y="58" width="480" height="246"/>
+                                <rect key="frame" x="-2" y="58" width="484" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="qAS-RI-SJa">
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -783,16 +800,50 @@
                                     <color key="backgroundColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="0.81362730704697983" colorSpace="calibratedRGB"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnn-fx-2yW">
-                                <rect key="frame" x="171" y="20" width="139" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="拖拽图片至此进行图片搜索" id="HWG-Q3-wyd">
-                                    <font key="font" size="11" name=".PingFangSC-Regular"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.24790268456375839" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
+                        <backgroundFilters>
+                            <ciFilter name="CIColorCrossPolynomial">
+                                <configuration>
+                                    <ciVector key="inputBlueCoefficients">
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="1"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                    </ciVector>
+                                    <ciVector key="inputGreenCoefficients">
+                                        <real value="0.0"/>
+                                        <real value="1"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                    </ciVector>
+                                    <null key="inputImage"/>
+                                    <ciVector key="inputRedCoefficients">
+                                        <real value="1"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                        <real value="0.0"/>
+                                    </ciVector>
+                                </configuration>
+                            </ciFilter>
+                        </backgroundFilters>
                     </view>
                     <connections>
                         <outlet property="dragImageView" destination="CX0-tR-zEM" id="6Wt-Gi-ltp"/>
@@ -802,14 +853,6 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <button verticalHuggingPriority="750" id="J3m-8u-Me6">
-                    <rect key="frame" x="0.0" y="0.0" width="475" height="25"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="roundTextured" title="图片搜索" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZZs-Za-sUa">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
-                    </buttonCell>
-                </button>
             </objects>
             <point key="canvasLocation" x="75" y="684"/>
         </scene>

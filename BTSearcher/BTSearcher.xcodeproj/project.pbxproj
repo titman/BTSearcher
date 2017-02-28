@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13217D0D1E6567EC004FA251 /* BTSearcherIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 13217D0C1E6567EC004FA251 /* BTSearcherIcons.icns */; };
 		13217D0F1E656975004FA251 /* BTSearcherIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13217D0E1E656975004FA251 /* BTSearcherIcon@3x.png */; };
+		13217D121E657FCE004FA251 /* SearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 13217D111E657FCE004FA251 /* SearchTextField.m */; };
 		1345FC891E4C876D004FA807 /* StatusItemIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */; };
 		1345FC8E1E4D601A004FA807 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1345FC8D1E4D601A004FA807 /* HTMLParser.m */; };
 		135045FE1E4C595E00BB7157 /* DJActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045F71E4C595E00BB7157 /* DJActivityIndicator.m */; };
@@ -53,6 +54,8 @@
 /* Begin PBXFileReference section */
 		13217D0C1E6567EC004FA251 /* BTSearcherIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BTSearcherIcons.icns; sourceTree = "<group>"; };
 		13217D0E1E656975004FA251 /* BTSearcherIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BTSearcherIcon@3x.png"; sourceTree = "<group>"; };
+		13217D101E657FCE004FA251 /* SearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTextField.h; sourceTree = "<group>"; };
+		13217D111E657FCE004FA251 /* SearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTextField.m; sourceTree = "<group>"; };
 		1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StatusItemIcon@2x.png"; sourceTree = "<group>"; };
 		1345FC8C1E4D601A004FA807 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		1345FC8D1E4D601A004FA807 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				13EB183F1E55A7D0006FF44A /* MagnetTableView.m */,
 				136655741E6010720080DC3B /* DragImageView.h */,
 				136655751E6010720080DC3B /* DragImageView.m */,
+				13217D101E657FCE004FA251 /* SearchTextField.h */,
+				13217D111E657FCE004FA251 /* SearchTextField.m */,
 				13EB18481E56C9A7006FF44A /* ImageSearchViewController.h */,
 				13EB18491E56C9A7006FF44A /* ImageSearchViewController.m */,
 				13EB184A1E56C9A7006FF44A /* ImageSearchViewController.xib */,
@@ -382,6 +387,7 @@
 				13BE0F471E31F4E700ADA879 /* main.m in Sources */,
 				13EB18401E55A7D0006FF44A /* MagnetTableView.m in Sources */,
 				13BE0F731E320D3B00ADA879 /* AFHTTPSessionManager.m in Sources */,
+				13217D121E657FCE004FA251 /* SearchTextField.m in Sources */,
 				13BE0F441E31F4E700ADA879 /* AppDelegate.m in Sources */,
 				13EB184B1E56C9A7006FF44A /* ImageSearchViewController.m in Sources */,
 				13BE0F841E320DCD00ADA879 /* XPathQuery.m in Sources */,

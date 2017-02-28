@@ -57,7 +57,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
     self.statusItem        = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.title  = @"";
     self.statusItem.image  = [NSImage imageNamed:@"BTSearcherIcon"];
@@ -69,12 +70,12 @@
     [menu addItemWithTitle:@"切换源" action:nil keyEquivalent:@""];
     [menu addItemWithTitle:@"BT磁力链(bturls.net)" action:@selector(changeSource:) keyEquivalent:@"1"];
     [menu addItemWithTitle:@"BTKIKI(btkiki.com)" action:@selector(changeSource:) keyEquivalent:@"2"];
-    [menu addItemWithTitle:@"BT蚂蚁(btanm.com  默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
+    [menu addItemWithTitle:@"BT蚂蚁(btanm.com 默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"百度图片搜索(默认)" action:@selector(changeImageSearchSource:) keyEquivalent:@"00"];
-    [menu addItemWithTitle:@"Google图片搜索" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
+    [menu addItemWithTitle:@"Google图片搜索(需翻墙)" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
     [menu addItem:[NSMenuItem separatorItem]];
-    NSMenuItem * item = [menu addItemWithTitle:@"显示窗口" action:@selector(openWindow:) keyEquivalent:@"01"];
+    NSMenuItem * item = [menu addItemWithTitle:@"显示窗口(control+v)" action:@selector(openWindow:) keyEquivalent:@"01"];
     [item setKeyEquivalentModifierMask:NSControlKeyMask];
     [item setKeyEquivalent:@"v"];
     
