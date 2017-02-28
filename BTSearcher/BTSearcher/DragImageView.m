@@ -104,12 +104,26 @@
         
         NSString * url = responseObject[@"data"][@"url"];
         
-        ImageSearchViewController * vc = [[ImageSearchViewController alloc] init];
-        vc.imageURL = url;
-        
-        [self.parentViewController presentViewControllerAsModalWindow:vc];
+//        ImageSearchViewController * vc = [[ImageSearchViewController alloc] init];
+//        vc.imageURL = url;
+//        
+//        [self.parentViewController presentViewControllerAsModalWindow:vc];
         
         [DJProgressHUD dismiss];
+        
+        
+        NSString * urlAddress = nil;
+        
+        if (IAMAGE_SEARCH_TYPE == 0) {
+            
+            urlAddress = [NSString stringWithFormat:@"http://image.baidu.com/n/pc_search?rn=10&appid=0&tag=1&isMobile=0&queryImageUrl=%@&querySign=&fromProduct=&productBackUrl=&fm=&uptype=plug_in", url];
+        }
+        else{
+            
+            urlAddress = [NSString stringWithFormat:@"https://www.google.com/searchbyimage?&image_url=%@", url];
+        }
+        
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:urlAddress]];
         
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         

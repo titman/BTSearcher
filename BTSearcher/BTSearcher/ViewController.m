@@ -60,7 +60,7 @@
 
     self.statusItem        = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.title  = @"";
-    self.statusItem.image  = [NSImage imageNamed:@"StatusItemIcon"];
+    self.statusItem.image  = [NSImage imageNamed:@"BTSearcherIcon"];
     self.statusItem.target = self;
     self.statusItem.action = @selector(openWindow:);
 

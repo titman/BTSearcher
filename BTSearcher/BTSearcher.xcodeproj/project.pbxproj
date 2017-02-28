@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13217D0D1E6567EC004FA251 /* BTSearcherIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 13217D0C1E6567EC004FA251 /* BTSearcherIcons.icns */; };
+		13217D0F1E656975004FA251 /* BTSearcherIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13217D0E1E656975004FA251 /* BTSearcherIcon@3x.png */; };
 		1345FC891E4C876D004FA807 /* StatusItemIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */; };
 		1345FC8E1E4D601A004FA807 /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1345FC8D1E4D601A004FA807 /* HTMLParser.m */; };
 		135045FE1E4C595E00BB7157 /* DJActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 135045F71E4C595E00BB7157 /* DJActivityIndicator.m */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13217D0C1E6567EC004FA251 /* BTSearcherIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BTSearcherIcons.icns; sourceTree = "<group>"; };
+		13217D0E1E656975004FA251 /* BTSearcherIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BTSearcherIcon@3x.png"; sourceTree = "<group>"; };
 		1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StatusItemIcon@2x.png"; sourceTree = "<group>"; };
 		1345FC8C1E4D601A004FA807 /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
 		1345FC8D1E4D601A004FA807 /* HTMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLParser.m; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 			children = (
 				13BE0F421E31F4E700ADA879 /* AppDelegate.h */,
 				13BE0F431E31F4E700ADA879 /* AppDelegate.m */,
+				13217D0C1E6567EC004FA251 /* BTSearcherIcons.icns */,
+				13217D0E1E656975004FA251 /* BTSearcherIcon@3x.png */,
 				13BE0F481E31F4E700ADA879 /* ViewController.h */,
 				13BE0F491E31F4E700ADA879 /* ViewController.m */,
 				13EB184D1E56E340006FF44A /* File.html */,
@@ -340,7 +346,9 @@
 				135046031E4C5D8100BB7157 /* ItemCell.xib in Resources */,
 				13BE0F5A1E31FA8E00ADA879 /* SearchIcon@2x.png in Resources */,
 				13BE0F4C1E31F4E700ADA879 /* Assets.xcassets in Resources */,
+				13217D0D1E6567EC004FA251 /* BTSearcherIcons.icns in Resources */,
 				13BE0F4F1E31F4E700ADA879 /* Main.storyboard in Resources */,
+				13217D0F1E656975004FA251 /* BTSearcherIcon@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
