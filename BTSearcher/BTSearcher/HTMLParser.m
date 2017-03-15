@@ -50,7 +50,7 @@
     }
     else{
         
-        return [HTMLParser btanm:object];
+        return [HTMLParser btanb:object];
     }
     
     return nil;
@@ -255,7 +255,7 @@
     return nil;
 }
 
-+(NSMutableArray *) btanm:(id)object
++(NSMutableArray *) btanb:(id)object
 {
     NSMutableArray * result = [NSMutableArray array];
     
@@ -286,7 +286,7 @@
             for (TFHppleElement * aElement in aElements) {
 
                 item.title = aElement.text;
-                item.href = [NSString stringWithFormat:@"http://www.btanm.com%@", [aElement objectForKey:@"href"]];
+                item.href = [NSString stringWithFormat:@"http://www.btanb.com%@", [aElement objectForKey:@"href"]];
             }
         }
         
@@ -345,7 +345,7 @@
     return result;
 }
 
-+(NSString *) btanmMagnet:(id)object
++(NSString *) btanbMagnet:(id)object
 {
     return nil;
 }

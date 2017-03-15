@@ -70,7 +70,7 @@
     [menu addItemWithTitle:@"切换源" action:nil keyEquivalent:@""];
     [menu addItemWithTitle:@"BT磁力链(bturls.net)" action:@selector(changeSource:) keyEquivalent:@"1"];
     [menu addItemWithTitle:@"BTKIKI(btkiki.com)" action:@selector(changeSource:) keyEquivalent:@"2"];
-    [menu addItemWithTitle:@"BT蚂蚁(btanm.com 默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
+    [menu addItemWithTitle:@"BT蚂蚁(btanb.com 默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
     [menu addItem:[NSMenuItem separatorItem]];
     [menu addItemWithTitle:@"百度图片搜索(默认)" action:@selector(changeImageSearchSource:) keyEquivalent:@"00"];
     [menu addItemWithTitle:@"Google图片搜索(需翻墙)" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
@@ -204,7 +204,7 @@
     }
     else{
         
-        url = [NSString stringWithFormat:@"http://www.btanm.com/search/%@-first-asc-1", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        url = [NSString stringWithFormat:@"http://www.btanb.com/search/%@-first-asc-1", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
         
     [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
@@ -270,7 +270,7 @@
     cell.count.stringValue = item.fileCount;
     cell.date.stringValue  = item.date;
 
-    if(SOURCE_TYPE == SourceTypeBTURLs || SOURCE_TYPE == SourceTypeBTANM) cell.fileCountTip.stringValue = @"热  度：";
+    if(SOURCE_TYPE == SourceTypeBTURLs || SOURCE_TYPE == SourceTypebtanb) cell.fileCountTip.stringValue = @"热  度：";
     else if(SOURCE_TYPE == SourceTypeBTKIKI) cell.fileCountTip.stringValue = @"文件数：";
     
     return cell;
