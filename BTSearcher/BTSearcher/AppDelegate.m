@@ -34,6 +34,9 @@
 #import "AppDelegate.h"
 #import "DDHotKeyCenter.h"
 #import <Carbon/Carbon.h>
+#import "JPEngine.h"
+#import "AFNetworking.h"
+#import "DJProgressHUD.h"
 
 @interface AppDelegate ()
 
@@ -44,13 +47,14 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
     
-    self.sourceType = 3;
-    
     DDHotKeyCenter * hotkeyCenter = [DDHotKeyCenter sharedHotKeyCenter];
     
     if (![hotkeyCenter registerHotKeyWithKeyCode:kVK_ANSI_V modifierFlags:NSControlKeyMask target:self action:@selector(hotkeyWithEvent:) object:nil]) {
     }
+    
+    [JPEngine startEngine];
 }
+
 
 - (void) hotkeyWithEvent:(NSEvent *)hkEvent
 {
@@ -59,10 +63,6 @@
     for (NSWindow * window in  [NSApp orderedWindows]) {
         [window orderFrontRegardless];
     }
-}
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
 }
 
 -(void) applicationDidBecomeActive:(NSNotification *)notification

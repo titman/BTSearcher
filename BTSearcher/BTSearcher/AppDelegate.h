@@ -32,17 +32,23 @@
 
 #import <Cocoa/Cocoa.h>
 #import "HTMLParser.h"
+#import "ViewController.h"
 
 #define APP_WIDTH [NSScreen mainScreen].visibleFrame.size.width
 #define APP_HEIGHT [NSScreen mainScreen].visibleFrame.size.height
 
-#define SOURCE_TYPE ((AppDelegate *)[NSApplication sharedApplication].delegate).sourceType
+#define SOURCE_TYPE ((AppDelegate *)[NSApplication sharedApplication].delegate).sourceSelectIndex
 #define IAMAGE_SEARCH_TYPE ((AppDelegate *)[NSApplication sharedApplication].delegate).imageSearchType
+#define SEARCH_SOURCE ((AppDelegate *)[NSApplication sharedApplication].delegate).searchSource
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property(nonatomic, assign) SourceType sourceType;
+@property(nonatomic, assign) NSInteger sourceSelectIndex;
 @property(nonatomic, assign) NSInteger imageSearchType;
+
+@property(nonatomic, strong) NSArray * searchSource;
+
+@property(nonatomic, strong) IBOutlet ViewController * viewController;
 
 @end
 

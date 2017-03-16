@@ -49,6 +49,9 @@
 		13EB184B1E56C9A7006FF44A /* ImageSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EB18491E56C9A7006FF44A /* ImageSearchViewController.m */; };
 		13EB184C1E56C9A7006FF44A /* ImageSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EB184A1E56C9A7006FF44A /* ImageSearchViewController.xib */; };
 		13EB184E1E56E340006FF44A /* File.html in Resources */ = {isa = PBXBuildFile; fileRef = 13EB184D1E56E340006FF44A /* File.html */; };
+		13F8CF0C1E78F9CF0042CC2E /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F8CF0A1E78F9CF0042CC2E /* JPEngine.m */; };
+		13F8CF0D1E78F9CF0042CC2E /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = 13F8CF0B1E78F9CF0042CC2E /* JSPatch.js */; };
+		13F8CF131E7935940042CC2E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F8CF121E7935940042CC2E /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +129,10 @@
 		13EB18491E56C9A7006FF44A /* ImageSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSearchViewController.m; sourceTree = "<group>"; };
 		13EB184A1E56C9A7006FF44A /* ImageSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageSearchViewController.xib; sourceTree = "<group>"; };
 		13EB184D1E56E340006FF44A /* File.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = File.html; sourceTree = "<group>"; };
+		13F8CF091E78F9CF0042CC2E /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
+		13F8CF0A1E78F9CF0042CC2E /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
+		13F8CF0B1E78F9CF0042CC2E /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
+		13F8CF121E7935940042CC2E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F8CF131E7935940042CC2E /* JavaScriptCore.framework in Frameworks */,
 				1366558A1E63C8960080DC3B /* AppKit.framework in Frameworks */,
 				136655881E63C8080080DC3B /* Carbon.framework in Frameworks */,
 				13EB18471E55B0DE006FF44A /* WebKit.framework in Frameworks */,
@@ -214,6 +222,7 @@
 				135046021E4C5D8100BB7157 /* ItemCell.xib */,
 				1345FC881E4C876D004FA807 /* StatusItemIcon@2x.png */,
 				13BE0F591E31FA8E00ADA879 /* SearchIcon@2x.png */,
+				13F8CF081E78F9CF0042CC2E /* JSPatch */,
 				1366557D1E63C73C0080DC3B /* DDHotkey */,
 				135045F51E4C595E00BB7157 /* DJProgressHUD */,
 				13BE0F7B1E320DCD00ADA879 /* Hpple */,
@@ -278,6 +287,7 @@
 		13BE0F851E320DF400ADA879 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13F8CF121E7935940042CC2E /* JavaScriptCore.framework */,
 				136655891E63C8960080DC3B /* AppKit.framework */,
 				136655871E63C8080080DC3B /* Carbon.framework */,
 				13EB18461E55B0DE006FF44A /* WebKit.framework */,
@@ -285,6 +295,16 @@
 				13BE0F861E320DF400ADA879 /* libxml2.2.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		13F8CF081E78F9CF0042CC2E /* JSPatch */ = {
+			isa = PBXGroup;
+			children = (
+				13F8CF091E78F9CF0042CC2E /* JPEngine.h */,
+				13F8CF0A1E78F9CF0042CC2E /* JPEngine.m */,
+				13F8CF0B1E78F9CF0042CC2E /* JSPatch.js */,
+			);
+			path = JSPatch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +371,7 @@
 				135046031E4C5D8100BB7157 /* ItemCell.xib in Resources */,
 				13BE0F5A1E31FA8E00ADA879 /* SearchIcon@2x.png in Resources */,
 				13BE0F4C1E31F4E700ADA879 /* Assets.xcassets in Resources */,
+				13F8CF0D1E78F9CF0042CC2E /* JSPatch.js in Resources */,
 				13217D0D1E6567EC004FA251 /* BTSearcherIcons.icns in Resources */,
 				13BE0F4F1E31F4E700ADA879 /* Main.storyboard in Resources */,
 				13217D0F1E656975004FA251 /* BTSearcherIcon@3x.png in Resources */,
@@ -378,6 +399,7 @@
 				13BE0F791E320D3B00ADA879 /* AFURLResponseSerialization.m in Sources */,
 				13BE0F721E320D3B00ADA879 /* AFHTTPRequestOperationManager.m in Sources */,
 				13BE0F831E320DCD00ADA879 /* TFHppleElement.m in Sources */,
+				13F8CF0C1E78F9CF0042CC2E /* JPEngine.m in Sources */,
 				13BE0F711E320D3B00ADA879 /* AFHTTPRequestOperation.m in Sources */,
 				135046061E4C5DEB00BB7157 /* ItemCell.m in Sources */,
 				13BE0F741E320D3B00ADA879 /* AFNetworkActivityIndicatorManager.m in Sources */,

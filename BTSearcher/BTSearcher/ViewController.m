@@ -38,6 +38,7 @@
 #import "HTMLParser.h"
 #import "AppDelegate.h"
 #import "ImageSearchViewController.h"
+#import "JPEngine.h"
 
 @implementation BTItem @end
 
@@ -50,6 +51,8 @@
 @property(nonatomic, strong) NSEvent * mouseMonitor;
 @property(nonatomic, strong) NSEvent * localMonitor;
 
+@property(nonatomic, strong) NSString * currentSourceName;
+
 @end
 
 @implementation ViewController
@@ -58,33 +61,15 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"JSLoadFinished" object:nil];
+    
     
     self.statusItem        = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.title  = @"";
     self.statusItem.image  = [NSImage imageNamed:@"BTSearcherIcon"];
     self.statusItem.target = self;
     self.statusItem.action = @selector(openWindow:);
-
     
-    NSMenu * menu = [[NSMenu alloc] init];
-    [menu addItemWithTitle:@"切换源" action:nil keyEquivalent:@""];
-    [menu addItemWithTitle:@"BT磁力链(bturls.net)" action:@selector(changeSource:) keyEquivalent:@"1"];
-    [menu addItemWithTitle:@"BTKIKI(btkiki.com)" action:@selector(changeSource:) keyEquivalent:@"2"];
-    [menu addItemWithTitle:@"BT蚂蚁(btanb.com 默认)" action:@selector(changeSource:) keyEquivalent:@"3"];
-    [menu addItem:[NSMenuItem separatorItem]];
-    [menu addItemWithTitle:@"百度图片搜索(默认)" action:@selector(changeImageSearchSource:) keyEquivalent:@"00"];
-    [menu addItemWithTitle:@"Google图片搜索(需翻墙)" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
-    [menu addItem:[NSMenuItem separatorItem]];
-    NSMenuItem * item = [menu addItemWithTitle:@"显示窗口(control+v)" action:@selector(openWindow:) keyEquivalent:@"01"];
-    [item setKeyEquivalentModifierMask:NSControlKeyMask];
-    [item setKeyEquivalent:@"v"];
-    
-    [menu addItem:[NSMenuItem separatorItem]];
-
-    [menu addItemWithTitle:@"Quit BTSearcher" action:@selector(terminate:) keyEquivalent:@""];
-    self.statusItem.menu = menu;
-    
-
     
     self.view.layer.backgroundColor = [[NSColor lightGrayColor] colorWithAlphaComponent:0.3].CGColor;
     self.preferredContentSize = NSMakeSize(self.view.frame.size.width, self.view.frame.size.height);
@@ -139,35 +124,143 @@
     }];
     
     self.dragImageView.parentViewController = self;
+    
+    
+    [self performSelector:@selector(loadJS) withObject:nil afterDelay:0.1];
 }
 
--(void) viewDidAppear
+#pragma mark - JS Update
+
+-(void) loadJS
 {
-    [super viewDidAppear];
+    [DJProgressHUD showStatus:@"检查更新..." FromView:self.view];
+
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
+    
+    NSString * url = @"https://cdn.rawgit.com/titman/Pictures-of-the-warehouse/80606656/source.plist";
+    
+    [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSDictionary * dic = [ViewController dictionaryWithContentsOfData:responseObject];
+        
+        SEARCH_SOURCE = dic[@"source"];
+        
+        NSInteger appVersion = [[[NSUserDefaults standardUserDefaults] objectForKey:@"SourceVersion"] integerValue];
+        NSInteger version    = [dic[@"version"] integerValue];
+        
+        if (appVersion < version) {
+            
+            // 全量更新
+            [self loadParserJSFromDisk:NO version:version];
+        }
+        else{
+            
+            // 本地读取
+            [self loadParserJSFromDisk:YES version:version];
+        }
+        
+        [DJProgressHUD dismiss];
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        [DJProgressHUD dismiss];
+    }];
+    
 }
 
+-(void) loadParserJSFromDisk:(BOOL)yesOrNo version:(NSInteger)version
+{
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString * writePath =  [[paths objectAtIndex:0] stringByAppendingFormat:@"/Caches/BTSearcher.js"];
+    
+    if (yesOrNo) {
+        
+        NSString * js = [[NSString alloc] initWithContentsOfFile:writePath encoding:NSUTF8StringEncoding error:nil];
+        
+        if (!js.length) {
+            
+            [self loadParserJSFromDisk:NO version:version];
+            return;
+        }
+        
+        [JPEngine evaluateScript:js];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"JSLoadFinished" object:nil];
+    }
+    else{
+        
+        [DJProgressHUD showStatus:@"正在更新脚本..." FromView:self.view];
 
-//- (NSURLRequest *)webView:(WebView *)sender resource:(id)identifier willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse fromDataSource:(WebDataSource *)dataSource
-//{
-//    if ([request.URL.absoluteString hasPrefix:@"file://"]) {
-//        
-//        return [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
-//    }
-//    
-//    if ([request.URL.absoluteString hasPrefix:@"http://image.baidu.com/n/pc_search?"]) {
-//
-//        ImageSearchViewController * imageSearch = [[ImageSearchViewController alloc] init];
-//        imageSearch.request = [NSURLRequest requestWithURL:request.URL];
-//        
-//        [self presentViewControllerAsModalWindow:imageSearch];
-//        
-//        [self performSelector:@selector(loadMain) withObject:nil afterDelay:2];
-//        
-//        return request;
-//    }
-//    
-//    return request;
-//}
+        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
+        
+        NSString * url = @"https://cdn.rawgit.com/titman/Pictures-of-the-warehouse/b168cc98/BTSearcher.js";
+        
+        [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            
+            NSString * js = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            
+            // 写入本地
+            [js writeToFile:writePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            
+            // 注入JS
+            [JPEngine evaluateScript:js];
+            
+            // 通知更新完成
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"JSLoadFinished" object:nil];
+            
+            // 存储版本号
+            [[NSUserDefaults standardUserDefaults] setObject:@(version) forKey:@"SourceVersion"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+            [DJProgressHUD dismiss];
+            
+        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+            
+            [DJProgressHUD dismiss];
+        }];
+    }
+}
+
+#pragma mark - Status Item
+
+-(void)handleNotification:(NSNotification *)notification
+{
+    NSMenu * menu = [[NSMenu alloc] init];
+    [menu addItemWithTitle:@"切换搜索源" action:nil keyEquivalent:@""];
+    [menu addItem:[NSMenuItem separatorItem]];
+    
+    for (NSInteger i = 0; i < SEARCH_SOURCE.count; i++) {
+        
+        NSString * string = SEARCH_SOURCE[i];
+        string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        NSArray * source = [string componentsSeparatedByString:@"|"];
+        
+        NSString * sourceName = source[0];
+        
+        [menu addItemWithTitle:sourceName action:@selector(changeSource:) keyEquivalent:@(i + 1).description];
+    }
+    
+    [menu addItem:[NSMenuItem separatorItem]];
+    [menu addItemWithTitle:@"切换图片搜索源" action:nil keyEquivalent:@""];
+    [menu addItem:[NSMenuItem separatorItem]];
+    
+    [menu addItemWithTitle:@"百度图片搜索(默认)" action:@selector(changeImageSearchSource:) keyEquivalent:@"00"];
+    [menu addItemWithTitle:@"Google图片搜索(需翻墙)" action:@selector(changeImageSearchSource:) keyEquivalent:@"01"];
+    [menu addItem:[NSMenuItem separatorItem]];
+    
+    NSMenuItem * item = [menu addItemWithTitle:@"显示窗口(control+v)" action:@selector(openWindow:) keyEquivalent:@"01"];
+    [item setKeyEquivalentModifierMask:NSControlKeyMask];
+    [item setKeyEquivalent:@"v"];
+    
+    [menu addItem:[NSMenuItem separatorItem]];
+    
+    [menu addItemWithTitle:@"Quit BTSearcher" action:@selector(terminate:) keyEquivalent:@""];
+    self.statusItem.menu = menu;
+}
 
 - (void)openWindow:(id)sender
 {
@@ -177,7 +270,7 @@
 
 -(void) changeSource:(NSMenuItem *)item
 {
-    SOURCE_TYPE = item.keyEquivalent.intValue;
+    SOURCE_TYPE = item.keyEquivalent.intValue - 1;
 }
 
 -(void) changeImageSearchSource:(NSMenuItem *)item
@@ -185,36 +278,35 @@
     IAMAGE_SEARCH_TYPE = item.keyEquivalent.intValue;
 }
 
+#pragma mark - Netwoking
+
 -(void) loadData
 {
-    [DJProgressHUD showStatus:@"loading..." FromView:self.view];
+    [DJProgressHUD showStatus:@"加载中..." FromView:self.view];
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
     
-    NSString * url = nil;
+    NSString * string = SEARCH_SOURCE[SOURCE_TYPE];
+    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    if (SOURCE_TYPE == SourceTypeBTURLs) {
+    NSArray * source = [string componentsSeparatedByString:@"|"];
+    
+    NSString * sourceName = source[0];
+    NSString * sourceURL = source[1];
+    
+    sourceURL = [sourceURL stringByReplacingOccurrencesOfString:@"%@" withString:[self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [manager GET:sourceURL parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
-        url = [NSString stringWithFormat:@"http://www.bturls.net/search/%@_ctime_1.html", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    }
-    else if(SOURCE_TYPE == SourceTypeBTKIKI){
-        
-        url = [NSString stringWithFormat:@"http://www.btkiki.com/s/%@.html", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    }
-    else{
-        
-        url = [NSString stringWithFormat:@"http://www.btanb.com/search/%@-first-asc-1", [self.textField.stringValue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    }
-        
-    [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        
-        NSMutableArray * result = [HTMLParser parsingWithObject:responseObject];
+        NSMutableArray * result = [HTMLParser parsingWithObject:responseObject sourceName:sourceName];
         
         self.datasource = result;
         [self.tableView reloadData];
         
         [DJProgressHUD dismiss];
+        
+        self.currentSourceName = sourceName;
         
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         
@@ -224,15 +316,14 @@
 
 -(void) getMagnetWithURL:(NSString *)href
 {
-    [DJProgressHUD showStatus:@"Getting Magnet..." FromView:self.view];
+    [DJProgressHUD showStatus:@"获取磁力链..." FromView:self.view];
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
     
     [manager GET:[NSString stringWithFormat:@"%@", href] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
-        NSString * magnet = [HTMLParser parsingMagnetWithObject:responseObject];
-        
+        NSString * magnet = [HTMLParser parsingMagnetWithObject:responseObject sourceName:self.currentSourceName];
         
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:magnet]];
         
@@ -245,7 +336,7 @@
     }];
 }
 
-#pragma mark -
+#pragma mark - TableView
 
 -(void)awakeFromNib
 {
@@ -269,9 +360,6 @@
     cell.size.stringValue  = item.size;
     cell.count.stringValue = item.fileCount;
     cell.date.stringValue  = item.date;
-
-    if(SOURCE_TYPE == SourceTypeBTURLs || SOURCE_TYPE == SourceTypebtanb) cell.fileCountTip.stringValue = @"热  度：";
-    else if(SOURCE_TYPE == SourceTypeBTKIKI) cell.fileCountTip.stringValue = @"文件数：";
     
     return cell;
 }
@@ -279,7 +367,7 @@
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
 {
     BTItem * item = self.datasource[row];
-
+    
     if (item.magnet) {
         
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:item.magnet]];
@@ -291,6 +379,26 @@
     
     return NO;
 }
+
+#pragma mark - Others
+
++ (NSDictionary *)dictionaryWithContentsOfData:(NSData *)data {
+    
+    CFPropertyListRef list = CFPropertyListCreateFromXMLData(kCFAllocatorDefault, (__bridge CFDataRef)data, kCFPropertyListImmutable, NULL);
+    
+    if(list == nil) return nil;
+    
+    if ([(__bridge id)list isKindOfClass:[NSDictionary class]]) {
+        
+        return (__bridge NSDictionary *)list;
+    }
+    else {
+        
+        CFRelease(list);
+        return nil;
+    }
+}
+
 
 
 @end

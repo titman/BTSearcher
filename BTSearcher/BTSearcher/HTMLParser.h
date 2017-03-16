@@ -32,16 +32,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, SourceType){
-  
-    SourceTypeBTURLs = 1,
-    SourceTypeBTKIKI = 2,
-    SourceTypebtanb  = 3,
-};
-
 @interface HTMLParser : NSObject
 
-+(NSMutableArray *) parsingWithObject:(id)object;
-+(NSString *) parsingMagnetWithObject:(id)object;
++(NSMutableArray *) parsingWithObject:(id)object sourceName:(NSString *)sourceName;
++(NSString *) parsingMagnetWithObject:(id)object sourceName:(NSString *)sourceName;
 
 @end

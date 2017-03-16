@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,57 +39,30 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsS-bR-dZl">
-                    <rect key="frame" x="1" y="38" width="138" height="17"/>
+                <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afR-56-noM">
+                    <rect key="frame" x="274" y="38" width="138" height="17"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="大小：" id="JC1-SC-A6V">
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="创建日期：今天" id="biE-RA-mzT">
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" red="0.094435505568981171" green="0.65330034494400024" blue="0.11100064963102341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4y-MW-EAb">
-                    <rect key="frame" x="36" y="38" width="138" height="17"/>
+                    <rect key="frame" x="1" y="38" width="138" height="17"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="1111mb" id="C7e-bP-zeT">
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="大小：1111mb" id="C7e-bP-zeT">
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                         <color key="textColor" red="0.094435505568981171" green="0.65330034494400024" blue="0.11100064963102341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMw-E4-Mfc">
-                    <rect key="frame" x="160" y="38" width="138" height="17"/>
+                    <rect key="frame" x="175" y="38" width="138" height="17"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="128" id="Mep-wd-aZX">
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="文件数：128" id="Mep-wd-aZX">
                         <font key="font" size="13" name=".PingFangSC-Regular"/>
                         <color key="textColor" red="0.094435505568981171" green="0.65330034494400024" blue="0.11100064963102341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afR-56-noM">
-                    <rect key="frame" x="262" y="38" width="138" height="17"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="今天" id="biE-RA-mzT">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
-                        <color key="textColor" red="0.094435505568981171" green="0.65330034494400024" blue="0.11100064963102341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIz-6y-aXh">
-                    <rect key="frame" x="111" y="38" width="138" height="17"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="文件数：" id="YoI-KG-lBk">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField identifier="cell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUV-JC-76q">
-                    <rect key="frame" x="200" y="38" width="151" height="17"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="创建日期：" id="tZe-we-eQd">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -98,10 +70,8 @@
             <connections>
                 <outlet property="count" destination="sMw-E4-Mfc" id="AfY-Ra-lg3"/>
                 <outlet property="date" destination="afR-56-noM" id="EG4-l8-Beo"/>
-                <outlet property="detail" destination="SsS-bR-dZl" id="jxH-Zp-4Ox"/>
                 <outlet property="file1" destination="bnp-W8-NPA" id="mSQ-oY-UTW"/>
                 <outlet property="file2" destination="Fz5-ra-aTS" id="rMm-Hw-0ak"/>
-                <outlet property="fileCountTip" destination="iIz-6y-aXh" id="DTK-HA-58B"/>
                 <outlet property="size" destination="F4y-MW-EAb" id="4uo-hO-uRm"/>
                 <outlet property="textField" destination="fQY-w5-9ap" id="CHb-WR-nDy"/>
                 <outlet property="title" destination="fQY-w5-9ap" id="ebK-L4-Foq"/>
