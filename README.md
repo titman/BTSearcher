@@ -7,7 +7,9 @@
 > * Hotkey.
 > * The minimum support OSX 10.10 .
 
-添加了JSPatch，现在服务器下发搜索源和解析脚本。
+
+
+###添加了JSPatch，现在服务器下发搜索源和解析脚本。
 
 -
 ![image](https://github.com/titman/Pictures-of-the-warehouse/blob/master/BTSearcher2.png?raw=false)
