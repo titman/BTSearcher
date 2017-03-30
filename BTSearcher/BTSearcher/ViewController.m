@@ -138,13 +138,23 @@
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
     
-    NSString * url = @"https://cdn.rawgit.com/titman/Pictures-of-the-warehouse/80606656/source.plist";
+    NSString * url = @"http://titm.me/btsearcher/source.js";
     
     [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSDictionary * dic = [ViewController dictionaryWithContentsOfData:responseObject];
         
         SEARCH_SOURCE = dic[@"source"];
+
+        
+        // 本地调试
+//        NSString * path = [[NSBundle mainBundle] pathForResource:@"BTSearcher" ofType:@"js"];
+//        NSString * js = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+//        [JPEngine evaluateScript:js];
+//        [DJProgressHUD dismiss];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"JSLoadFinished" object:nil];
+//        return;
+
         
         NSInteger appVersion = [[[NSUserDefaults standardUserDefaults] objectForKey:@"SourceVersion"] integerValue];
         NSInteger version    = [dic[@"version"] integerValue];
@@ -195,7 +205,8 @@
         AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
         manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
         
-        NSString * url = @"https://cdn.rawgit.com/titman/Pictures-of-the-warehouse/b168cc98/BTSearcher.js";
+        NSString * url = @"http://titm.me/btsearcher/BTSearcher.js";
+        
         
         [manager GET:url parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
             
