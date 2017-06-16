@@ -137,6 +137,7 @@
 
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer     = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer      = [AFHTTPRequestSerializer serializer];
     
     NSString * url = @"http://titm.me/btsearcher/source.js";
     
@@ -175,6 +176,8 @@
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         
         [DJProgressHUD dismiss];
+        
+        NSLog(@"%@", error);
     }];
     
 }
@@ -231,6 +234,8 @@
         } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
             
             [DJProgressHUD dismiss];
+            
+            NSLog(@"%@", error);
         }];
     }
 }
@@ -293,6 +298,10 @@
 
 -(void) loadData
 {
+    if (!SEARCH_SOURCE) {
+        return;
+    }
+    
     [DJProgressHUD showStatus:@"加载中..." FromView:self.view];
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
